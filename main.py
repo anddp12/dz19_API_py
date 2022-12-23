@@ -10,3 +10,5 @@ response = requests.get(request)
 
 json_w = json.loads(response.text)
 print(json_w)
+temp = json_w['main']['temp'] - 273.15
+print(f"🌡 Температура воздуха в городе {city} составляет : {round(temp,1)}℃")

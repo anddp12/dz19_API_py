@@ -11,4 +11,10 @@ response = requests.get(request)
 json_w = json.loads(response.text)
 print(json_w)
 temp = json_w['main']['temp'] - 273.15
-print(f"🌡 Температура воздуха в городе {city} составляет : {round(temp,1)}℃")
+temp1 = json_w['main']['feels_like'] - 273.15
+humidity = json_w['main']['humidity']
+pressure = json_w['main']['pressure']
+
+print(f"🌡 Температура воздуха в городе {city} составляет : {round(temp,1)} ℃ \n🌡 Ощущается как {round(temp1,1)} ℃")
+print(f"💧 Влажность : {humidity} %")
+print(f"☁ Давление : {pressure} гПа")
